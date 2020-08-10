@@ -6,5 +6,5 @@ class Constant {
 	public final static String KEY_STAGE_WIDTH = "javafx.stage.width";
 	public final static String KEY_STAGE_HEIGHT = "javafx.stage.height";
 	public final static String KEY_STAGE_RESIZABLE = "javafx.stage.resizable";
-	public final static String KEY_APPICONS = "javafx.appicons";
+	public final static String KEY_APP_ICONS = "javafx.app.icons";
 }

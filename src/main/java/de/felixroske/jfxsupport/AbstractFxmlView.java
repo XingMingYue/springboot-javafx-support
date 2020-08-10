@@ -102,9 +102,7 @@ public abstract class AbstractFxmlView implements ApplicationContextAware {
 	 * @return the FXML annotation
 	 */
 	private FXMLView getFXMLAnnotation() {
-		final Class<? extends AbstractFxmlView> theClass = this.getClass();
-		final FXMLView annotation = theClass.getAnnotation(FXMLView.class);
-		return annotation;
+		return this.getClass().getAnnotation(FXMLView.class);
 	}
 
 	/**

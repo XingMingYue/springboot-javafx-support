@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
  */
 public class SplashScreen {
 
-	private static String DEFAULT_IMAGE = "/splash/javafx.png";
+	private static final String DEFAULT_IMAGE = "/splash/javafx.png";
 
 	/**
 	 * Override this to create your own splash pane parent node.

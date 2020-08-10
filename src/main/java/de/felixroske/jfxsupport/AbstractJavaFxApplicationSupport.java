@@ -22,10 +22,11 @@ import javafx.stage.*;
  * The Class AbstractJavaFxApplicationSupport.
  *
  * @author Felix Roske
+ * @author XingMingYue
  */
 @SuppressWarnings("WeakerAccess")
 public abstract class AbstractJavaFxApplicationSupport extends Application {
-    private static Logger LOGGER = LoggerFactory.getLogger(AbstractJavaFxApplicationSupport.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractJavaFxApplicationSupport.class);
 
     private static String[] savedArgs = new String[0];
 
@@ -35,7 +36,7 @@ public abstract class AbstractJavaFxApplicationSupport extends Application {
 
     private static ConfigurableApplicationContext applicationContext;
 
-    private static List<Image> icons = new ArrayList<>();
+    private static final List<Image> icons = new ArrayList<>();
 
     private static Consumer<Throwable> errorAction = defaultErrorAction();
 
@@ -65,14 +66,15 @@ public abstract class AbstractJavaFxApplicationSupport extends Application {
 
     private void loadIcons(ConfigurableApplicationContext ctx) {
         try {
-            final List<String> fsImages = PropertyReaderHelper.get(ctx.getEnvironment(), Constant.KEY_APPICONS);
+            final List<String> fsImages = PropertyReaderHelper.get(ctx.getEnvironment(), Constant.KEY_APP_ICONS);
             if (! fsImages.isEmpty()) {
                 fsImages.forEach((s) -> {
                     Image img = new Image(getClass().getResource(s).toExternalForm());
                     icons.add(img);
                 });
             }
-            else { // add factory images
+            else {
+                // add factory images
                 icons.addAll(defaultIcons);
             }
         }
@@ -139,6 +141,7 @@ public abstract class AbstractJavaFxApplicationSupport extends Application {
     }
 
     /**
+     * 显示初始视图
      * Show initial view.
      */
     private void showInitialView() {
